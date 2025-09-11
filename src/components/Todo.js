@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 
 const Todo = () => {
 const [todos,setTodos] = useState([]);
-// useEffect(() => {
-//   const savedTodos = JSON.parse(localStorage.getItem("todos"));
-//   if (savedTodos) { setTodos(savedTodos); }
-//   }, []);
+useEffect(() => {
+  const savedTodos = JSON.parse(localStorage.getItem("todos"));
+  if (savedTodos) { setTodos(savedTodos); }
+  }, []);
 
-// useEffect(() => {
-//   localStorage.setItem("todos", JSON.stringify(todos));
-//   }, [todos]);
+useEffect(() => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
 const addTodo = (event) => {
   event.preventDefault(); 
