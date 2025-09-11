@@ -1,8 +1,16 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Todo = () => {
 const [todos,setTodos] = useState([]);
+// useEffect(() => {
+//   const savedTodos = JSON.parse(localStorage.getItem("todos"));
+//   if (savedTodos) { setTodos(savedTodos); }
+//   }, []);
+
+// useEffect(() => {
+//   localStorage.setItem("todos", JSON.stringify(todos));
+//   }, [todos]);
 
 const addTodo = (event) => {
   event.preventDefault(); 
@@ -15,7 +23,9 @@ const addTodo = (event) => {
     time: data.time.value 
   };
   setTodos([...todos, newTodo]);
+  data.reset();
 }
+
   const deleteTodo = (index) => {
   const updatedTodos = todos.filter((_, i) => i !== index);
   setTodos(updatedTodos);
